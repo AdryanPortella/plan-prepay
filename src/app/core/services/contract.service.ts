@@ -31,7 +31,6 @@ export class ContractService {
     return newContract;
   }
 
-  //   verificar a tipagem correta.
   private generateInstallments(targetValue: number, months: number, startDate: Date): any {
     const installmentValue = targetValue / months;
 
