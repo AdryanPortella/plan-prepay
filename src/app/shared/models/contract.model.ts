@@ -25,5 +25,5 @@ export interface IContract {
   startDate: Date;
   monthsDuration: number;
   installments: IInstallment[];
-  createAt: Date;
+  createdAt: Date;
 }
