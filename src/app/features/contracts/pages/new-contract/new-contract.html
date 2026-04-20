@@ -1,1 +1,70 @@
-<p>new-contract works!</p>
+<form nz-form [formGroup]="form" nzLayout="vertical" (ngSubmit)="save()">
+  <h2>Novo Contrato</h2>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Nome do Cliente</nz-form-label>
+    <nz-form-control nzErrorTip="Campo obrigatório">
+      <input nz-input formControlName="clientName" placeholder="Nome completo" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>E-mail</nz-form-label>
+    <nz-form-control nzErrorTip="E-mail inválido">
+      <input nz-input formControlName="clientEmail" placeholder="email@exemplo.com" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Telefone</nz-form-label>
+    <nz-form-control nzErrorTip="Campo obrigatório">
+      <input nz-input formControlName="clientPhone" placeholder="(41) 99999-9999" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Descrição do Projeto</nz-form-label>
+    <nz-form-control nzErrorTip="Campo obrigatório">
+      <textarea
+        nz-input
+        formControlName="description"
+        placeholder="Ex: Quarto planejado completo"
+      ></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Valor Total do Orçamento</nz-form-label>
+    <nz-form-control nzErrorTip="Campo obrigatório">
+      <nz-input-number formControlName="totalValue" [nzMin]="0" nzPrefix="R$" style="width: 100%" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Valor a Acumular</nz-form-label>
+    <nz-form-control nzErrorTip="Campo obrigatório">
+      <nz-input-number
+        formControlName="targetValue"
+        [nzMin]="0"
+        nzPrefix="R$"
+        style="width: 100%"
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Data de Início da Obra</nz-form-label>
+    <nz-form-control nzErrorTip="Campo obrigatório">
+      <nz-date-picker formControlName="startDate" style="width: 100%" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Duração (meses)</nz-form-label>
+    <nz-form-control nzErrorTip="Campo obrigatório">
+      <nz-input-number formControlName="monthsDuration" [nzMin]="1" style="width: 100%" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <button nz-button nzType="primary" [nzLoading]="loading" (click)="save()">Salvar Contrato</button>
+</form>
